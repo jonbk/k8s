@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: wait-job
+  labels:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+        - name: wait
+          image: busybox
+          command: ["sh", "-c", "echo Waiting for 30 seconds... && sleep 30"]
+      restartPolicy: Never
+  backoffLimit: 4
