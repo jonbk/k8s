@@ -5,6 +5,7 @@ metadata:
   labels:
     argocd.argoproj.io/hook: PostSync
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/hook-weight: "100"
 spec:
   template:
     spec:

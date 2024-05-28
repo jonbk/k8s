@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: wait-job
+  labels:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-weight: "90"
+data:
+  hello: "world"
