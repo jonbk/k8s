@@ -8,6 +8,9 @@ metadata:
     argocd.argoproj.io/hook-weight: "100"
 spec:
   template:
+    metadata:
+      annotations:
+        checksum/config: {{ $.Values | toString | sha256sum }}
     spec:
       containers:
         - name: wait
